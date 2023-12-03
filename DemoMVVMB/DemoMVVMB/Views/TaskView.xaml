@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DemoMVVMB.Views.TaskView">
+    <StackLayout Padding="50">
+        <Label FontSize="Title" Text="LAB-12" HorizontalTextAlignment="Center"></Label>
+            <Label FontSize="Title" Text="Title"></Label>
+            <Entry FontSize="Title" Placeholder="Title" Text="{Binding Title}"></Entry>
+            <Label FontSize="Title" Text="Description"></Label>
+            <Entry FontSize="Title" Placeholder="Description" Text="{Binding Description}"></Entry>
+            <Label FontSize="Title" Text="Status"></Label>
+            <Switch IsToggled="{Binding Status}" />
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Grabar" Command="{Binding Grabar}"></Button>
+                <Button Text="Listar" Command="{Binding Listar}"></Button>
+            </StackLayout>
+            <ListView ItemsSource="{Binding Tasks}" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+                                <Label Text="{Binding Title}" />
+                                <Label Text="{Binding Description}" />
+                                <Label Text="{Binding Status}" />
+                                <!-- Agrega más etiquetas según las propiedades que desees mostrar -->
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+</ContentPage>
